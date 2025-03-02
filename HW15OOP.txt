@@ -1,0 +1,24 @@
+ 1) By using importing sys and using method getrefcount.
+ 
+ 2) the size of the array, and its type.
+ 
+ 3) Its printing the amount of objects in each generation, 
+ you should use it when you created a lot of objects and want to get their count.
+ 
+ 4) The function collects the "garbage" which are objects with no references,
+ You should use it after creating a significant amount of objects.
+ 
+ 5) by using gc.enable and gc.disable, you should use that when
+ wanting to activate the collector at specific time on your runtime.
+ 
+ 6) Strong references are counted in reference count, which means that if
+ only a weak reference is present, the object is collected to garbage,
+ its a solution to reference cycle as you can create the weak reference,
+ inside the list, and when you delete the strong one, the weak one wont count
+ in the reference count so the object would be deleted.
+ 
+ 7) By using the @profile decorator we can see a large incrase in the 
+ memory usage of 763 MiB, in the line contents we can see the corresponding
+ function (heavy_result = calc_log_function()), which means the the calc_log_function
+ is the memory needy function.
+ 
