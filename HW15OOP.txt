@@ -1,15 +1,18 @@
  1) By using importing sys and using method getrefcount.
  
- 2) the size of the array, and its type.
+ 2) the size of the array, and the size of each item inside. #fixed
  
  3) Its printing the amount of objects in each generation, 
  you should use it when you created a lot of objects and want to get their count.
  
- 4) The function collects the "garbage" which are objects with no references,
- You should use it after creating a significant amount of objects.
+ 4) The function collects the "garbage" which are objects with no references,    #fixed
+ You should use it after creating a significant amount of objects and before a critical or heavy
+ part of the code, as it can slow down the run. 
  
- 5) by using gc.enable and gc.disable, you should use that when
- wanting to activate the collector at specific time on your runtime.
+ 5) by using gc.enable and gc.disable, you should use that when      #fixed
+ wanting to activate the collector at specific time on your runtime, 
+ usually before a critical or heavy section you want running as fast as possible, 
+ as the GC and slow the code down.
  
  6) Strong references are counted in reference count, which means that if
  only a weak reference is present, the object is collected to garbage,
